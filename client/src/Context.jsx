@@ -23,7 +23,6 @@ const ContextProvider = ({ children }) => {
       .getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
         setStream(currentStream);
-
         myVideo.current.srcObject = currentStream;
       });
 
@@ -31,7 +30,6 @@ const ContextProvider = ({ children }) => {
 
     socket.on("callUser", ({ signal, from, name }) => {
       setCall({ isReceivingCall: true, from, name, signal });
-      console.log(name);
     });
 
     socket.on("callEnded", () => {
@@ -80,7 +78,6 @@ const ContextProvider = ({ children }) => {
     socket.on("callAccepted", ({ signal, name }) => {
       setCallAccepted(true);
       setCall({ name });
-      console.log(name);
       peer.signal(signal);
     });
 

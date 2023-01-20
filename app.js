@@ -25,13 +25,13 @@ io.on("connection", (socket) => {
 	});
 
 	socket.on("answerCall", ({ signalData, idFromCall, name }) => {
-		console.log({ signalData, idFromCall, name });
+
 		io.to(idFromCall).emit("callAccepted", { signal: signalData, name })
 	});
 
 	socket.on("callEnded", (id) => {
 		io.to(id).emit("callEnded");
-		console.log(socket.id);
+
 	})
 });
 
