@@ -84,14 +84,13 @@ const ContextProvider = ({ children }) => {
     connectionRef.current = peer;
   };
 
-  const leaveCall = (id) => {
+  const leaveCall = async (id) => {
     setCallEnded(true);
 
-    socket.emit("callEnded", id);
-
-    connectionRef.current.destroy();
-
-    window.location.reload();
+    socket.emit("callEnded", id, () => {
+      connectionRef.current.destroy();
+      window.location.reload();
+    });
   };
 
   return (
