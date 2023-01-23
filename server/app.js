@@ -4,7 +4,7 @@ const cors = require("cors");
 
 const io = require("socket.io")(server, {
 	cors: {
-		origin: "*",
+		origin: "https://vidly-3j26.onrender.com",
 		methods: ["GET", "POST"]
 	}
 });
