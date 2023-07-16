@@ -1,6 +1,6 @@
 # vidly
 link : https://vidly-3j26.onrender.com
-A videochat platform.
+A videochat platform built using NodeJS, Socket.io, ReactJS and SimplePeer.
 
 preview: 
 
